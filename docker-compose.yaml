@@ -1,0 +1,17 @@
+version: '2.0'
+services:
+  ecom:
+    image: bstaarc/ecom-v1
+    network_mode: 'host'
+    restart: unless-stopped
+    cap_add:
+      - NET_ADMIN
+    volumes:
+      - /ecom:/ecom
+    environment:
+      - 'ECOM_IP=127.0.0.1'
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    container_name: ecom-v1
